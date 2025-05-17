@@ -1,9 +1,6 @@
-#!/usr/bin/python
+# Pietfuck Interpreter
 #
-# Brainfuck Interpreter
-# Copyright 2011 Sebastian Kaspari
-#
-# Usage: ./brainfuck.py [FILE]
+# Usage: python3 pietfuck.py [FILE]
 
 import sys
 import getch
@@ -15,13 +12,29 @@ def execute(filename):
 
 
 def evaluate(code):
+
+  instruction_to_opcode = {
+    "<": 0b000,
+    ">": 0b001,
+    "+": 0b010,
+    "-": 0b011,
+    "[": 0b100,
+    "]": 0b101,
+    ",": 0b110,
+    ".": 0b111
+  }
+  opcode_to_instruction = {v: k for k, v in instruction_to_opcode.items()}
+  
   code     = cleanup(list(code))
   bracemap = buildbracemap(code)
 
   cells, codeptr, cellptr = [0], 0, 0
+  
+  prev_opcode = 0b000
 
   while codeptr < len(code):
-    command = code[codeptr]
+    curr_opcode = instruction_to_opcode[code[codeptr]]
+    command = opcode_to_instruction[curr_opcode ^ prev_opcode]
 
     if command == ">":
       cellptr += 1
@@ -42,6 +55,7 @@ def evaluate(code):
     if command == ",": cells[cellptr] = ord(getch.getch())
       
     codeptr += 1
+    prev_opcode = curr_opcode
 
 
 def cleanup(code):
