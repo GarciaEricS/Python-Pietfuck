@@ -1,4 +1,4 @@
-This is just a small Pietfuck interpreter written in Python. Read more about Pietfuck [here](https://docs.google.com/document/d/1CYE8zqSIaPrkx7zykVXA7Wn8A90MCSkv10elyIw3wz8/edit?usp=sharing)
+This is just a small Pietfuck interpreter written in Python. Read more about Pietfuck at https://docs.google.com/document/d/1CYE8zqSIaPrkx7zykVXA7Wn8A90MCSkv10elyIw3wz8/edit?usp=sharing
 
 Usage:
  python3 ./pietfuck.py yourcode.pf
