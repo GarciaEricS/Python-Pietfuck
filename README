@@ -1,10 +1,10 @@
-This is just a small Brainfuck interpreter written in Python.
+This is just a small Pietfuck interpreter written in Python. Read more about Pietfuck [here](https://docs.google.com/document/d/1CYE8zqSIaPrkx7zykVXA7Wn8A90MCSkv10elyIw3wz8/edit?usp=sharing)
 
 Usage:
- ./brainfuck.py yourcode.bf
+ ./pietfuck.py yourcode.pf
 
 You can use it as a module as well:
-  import brainfuck
+  import pietfuck
 
   sourcecode = """
     ++++++++++[>+++++++>++++++++++>+++>+<<<<-]
@@ -12,11 +12,4 @@ You can use it as a module as well:
     >.+++.------.--------.>+.>.
   """
 
-  brainfuck.evaluate(sourcecode)
-
-http://en.wikipedia.org/wiki/Brainfuck
-
-(C) Sebastian Kaspari 2011
-This programm is licensed under the terms of the
-DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE.
-
+  pietfuck.evaluate(sourcecode)
